@@ -1,11 +1,18 @@
 import discord
 from discord.ext import commands
+import json
 
-bot = commands.Bot(command_prefix='>')
+with open('Setting.json','r',encoding='utf8') as jfile:
+    jdata = json.load(jfile)
+
+bot = commands.Bot(command_prefix='!')
 
 @bot.event
 async def on_ready():
     print(">> bot is online <<")
 
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
                    
-bot.run('NjI0NjMxMjc5NDEzMTAwNTc0.XYT6UA.eTPOGoRm2u0j7PgJJrClDgmT8LI')
+bot.run(jdata['token'])

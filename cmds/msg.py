@@ -6,7 +6,8 @@ class msg(cog_Extention):
 
     @commands.Cog.listener()
     async def on_message(self, mmm):
-        if mmm.content == '哭阿':
+        key = ['哭阿','哭啊']
+        if mmm.content in key:
             await mmm.channel.send('嫩拉')
 
 def setup(bot):
